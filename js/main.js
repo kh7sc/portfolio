@@ -1,54 +1,79 @@
-const langWrapper = document.getElementById('langWrapper');
-const langToggle = langWrapper.querySelector('.lang-toggle');
-const langMenu = langWrapper.querySelector('.lang-menu');
+let lang = "fr";
+const $ = s => document.querySelector(s);
 
-// Ouvrir / fermer le menu au clic sur le bouton principal
-langToggle.addEventListener('click', (e) => {
-  e.stopPropagation();
+// --- Gestion du sélecteur de langue flottant ---
+const langWrapper = $("#langWrapper");
+const langToggle = $(".lang-toggle");
 
-  const isOpen = langWrapper.classList.toggle('open');
-  langToggle.setAttribute('aria-expanded', isOpen);
-});
+if (langWrapper && langToggle) {
+  // Ouvrir / Fermer le menu au clic sur le bouton globe
+  langToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = langWrapper.classList.toggle("open");
+    langToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
 
-// Sélectionner une langue et fermer immédiatement le menu
-langMenu.addEventListener('click', (e) => {
-  const btn = e.target.closest('.lang-btn');
-
-  if (!btn) return;
-
-  const selectedLang = btn.dataset.lang;
-
-  setLang(selectedLang);
-
-  // Fermer le menu immédiatement
-  langWrapper.classList.remove('open');
-  langToggle.setAttribute('aria-expanded', 'false');
-});
-
-function setLang(l) {
-  lang = T[l] ? l : "fr";
-  document.documentElement.lang = lang;
-
-  // Mettre à jour les textes traduits
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    if (T[lang][el.dataset.i18n] !== undefined) {
-      el.textContent = T[lang][el.dataset.i18n];
+  // Fermer le menu si l'on clique en dehors
+  document.addEventListener("click", (e) => {
+    if (!langWrapper.contains(e.target)) {
+      langWrapper.classList.remove("open");
+      langToggle.setAttribute("aria-expanded", "false");
     }
   });
-
-  // Mettre à jour la langue active
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
-
-  // Revalider les champs
-  document.querySelectorAll(".field").forEach(validate);
-
-  // Sauvegarder la langue choisie
-  try {
-    localStorage.setItem("lang", lang);
-  } catch (e) {}
 }
+
+// Fonction de changement de langue avec transition fluide (fondu) et fermeture automatique
+function setLang(l) {
+  const newLang = T[l] ? l : "fr";
+  if (newLang === lang) {
+    // Même si c'est la même langue, on ferme le menu par sécurité au clic
+    if (langWrapper) {
+      langWrapper.classList.remove("open");
+      langToggle.setAttribute("aria-expanded", "false");
+    }
+    return;
+  }
+
+  // Effet de fondu sortant sur le contenu principal
+  const mainContent = document.querySelector("main");
+  if (mainContent) mainContent.classList.add("lang-fade-out");
+
+  setTimeout(() => {
+    lang = newLang;
+    document.documentElement.lang = lang;
+    
+    // Mise à jour des textes traduits
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      if (T[lang][el.dataset.i18n]) {
+        el.textContent = T[lang][el.dataset.i18n];
+      }
+    });
+    
+    // Mise à jour des boutons actifs dans le menu
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+
+    // Validation des champs du formulaire avec la nouvelle langue
+    document.querySelectorAll(".field").forEach(field => validate(field, false));
+
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+
+    // Fermeture automatique du menu dès qu'une option de langue a été choisie
+    if (langWrapper) {
+      langWrapper.classList.remove("open");
+      langToggle.setAttribute("aria-expanded", "false");
+    }
+
+    // Effet de fondu entrant
+    if (mainContent) mainContent.classList.remove("lang-fade-out");
+  }, 200);
+}
+
+// Initialisation des écouteurs sur les boutons de langue du menu
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => setLang(btn.dataset.lang));
+});
 
 // Navbar rétractable
 const nav = $("#navbar"), menu = $("#menu"), burger = $(".burger");
