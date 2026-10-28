@@ -14,6 +14,7 @@
 <body>
 <a class="skip" href="#about">Aller au contenu</a>
 
+<!-- Section Navbar -->
 <header id="navbar">
   <a class="logo" href="#top">Stéphanie Tep</a>
   <button class="burger" aria-label="Menu" aria-expanded="false">
@@ -35,6 +36,7 @@
   </nav>
 </header>
 
+<!-- Section Deco -->
 <section class="hero" id="top">
   <canvas id="matrix" aria-hidden="true"></canvas>
   <pre class="snippet" aria-hidden="true"><code>const dev = {
@@ -49,13 +51,17 @@
   </div>
 </section>
 
+<!-- Section Animation 3D -->
 <section class="drive" id="drive" aria-label="Animation 3D">
   <div class="sticky">
     <canvas id="scene3d" aria-hidden="true"></canvas>
   </div>
 </section>
 
+<!-- Section Principale -->
 <main>
+
+  <!-- Section A propos de moi -->
   <section id="about">
     <h2 data-i18n="a_title">À propos de moi</h2>
     <div class="blocks">
@@ -76,9 +82,11 @@
       </article>
     </div>
     
+    <!-- Parcours scolaire/pro -->
     <h3 data-i18n="a_path_t">Parcours scolaire & professionnel</h3>
     <div class="timeline-container">
-    <!-- Colonne 1 : Parcours Scolaire -->
+
+    <!-- Scolaire-->
     <div class="timeline-column">
       <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent, #7a5539);">Parcours Scolaire</h4>
       <ol class="timeline">
@@ -105,7 +113,7 @@
       </ol>
     </div>
 
-    <!-- Colonne 2 : Parcours Professionnel -->
+    <!-- Professionnel -->
     <div class="timeline-column">
       <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent, #7a5539);">Parcours Professionnel</h4>
       <ol class="timeline">
@@ -129,6 +137,7 @@
     </div>
   </section>
 
+  <!-- Section Compétences -->
   <section id="skills">
     <h2 data-i18n="s_title">Compétences</h2>
     <div class="grid">
@@ -147,6 +156,7 @@
     </div>
   </section>
 
+  <!-- Section Veille Technologique -->
   <section id="veille">
     <h2 data-i18n="v_title">Veille Technologique</h2>
     <div class="grid">
@@ -158,6 +168,7 @@
     <p class="feeds mono reveal"><span data-i18n="v_feeds">Sources : </span>CERT-FR · Hacker News · MDN Blog · Dev.to</p>
   </section>
 
+  <!-- Section CCF -->
   <section id="ccf">
     <h2 data-i18n="c_title">CCF & Évaluations</h2>
     <p class="lead" data-i18n="c_intro">Synthèse de mes épreuves de BTS SIO.</p>
@@ -174,6 +185,7 @@
     </div>
   </section>
 
+  <!-- Section Mes Projets -->
   <section id="projects">
     <h2 data-i18n="p_title">Projets Réalisés</h2>
     <div class="grid">
@@ -201,6 +213,7 @@
     </div>
   </section>
 
+  <!-- Section Contact -->
   <section id="contact">
     <h2 data-i18n="k_title">Contactez-moi</h2>
     <form id="contact-form" class="form-card reveal" novalidate>
@@ -231,11 +244,13 @@
   </section>
 </main>
 
+<!-- Section Pied de page -->
 <footer><p class="mono">© <span id="year"></span> Stéphanie Tep</p></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/matrix.js"></script>
 <script src="js/animation-3d.js"></script>
 <script src="js/main.js"></script>
+<script src="js/traduction.js"></script>
 </body>
 </html>
