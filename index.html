@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio – BTS SIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+<a class="skip" href="#about">Aller au contenu</a>
+
+<header id="navbar">
+  <a class="logo" href="#top">Stéphanie Tep</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="menu">
+    <a href="#about" data-i18n="about">À propos</a>
+    <a href="#skills" data-i18n="skills">Compétences</a>
+    <a href="#veille" data-i18n="veille">Veille</a>
+    <a href="#ccf" data-i18n="ccf">CCF</a>
+    <a href="#projects" data-i18n="projects">Projets</a>
+    <a href="#contact" data-i18n="contact">Contact</a>
+    <select id="lang" aria-label="Langue">
+      <option value="fr">🇫🇷-FR</option>
+      <option value="en">🇬🇧-EN</option>
+      <option value="es">🇪🇸-ES</option>
+    </select>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <pre class="snippet" aria-hidden="true"><code>const dev = {
+  school: "BTS SIO",
+  options: ["SISR", "SLAM"],
+  coffee: true,
+};</code></pre>
+  <div class="hero-text">
+    <h1>Stéphanie Tep</h1>
+    <p class="role" data-i18n="h_role">Développeur · Étudiant en BTS SIO</p>
+    <a class="btn" href="#drive" data-i18n="h_scroll">Descendre</a>
+  </div>
+</section>
+
+<section class="drive" id="drive" aria-label="Animation 3D">
+  <div class="sticky">
+    <canvas id="scene3d" aria-hidden="true"></canvas>
+  </div>
+</section>
+
+<main>
+  <section id="about">
+    <h2 data-i18n="a_title">À propos de moi</h2>
+    <div class="blocks">
+      <article class="card reveal">
+        <h3 data-i18n="a_intro_t">Mon Profil</h3>
+        <p data-i18n="a_intro">Passionné par le code et la création d'applications web et logicielles...</p>
+      </article>
+      <article class="card reveal">
+        <h3 data-i18n="a_bts_t">Le BTS SIO</h3>
+        <p data-i18n="a_bts">Formation aux services informatiques aux organisations...</p>
+        <div class="option-tabs">
+          <button class="tab-btn active" data-option="slam">SLAM</button>
+          <button class="tab-btn" data-option="sisr">SISR</button>
+        </div>
+        <div id="option-description" class="option-content">
+          <p data-i18n="desc_slam"><strong>SLAM :</strong> Solutions Logicielles et Applications Métier. Conception, développement, tests et maintenance de logiciels (web, mobile, bureau). </p>
+        </div>
+      </article>
+    </div>
+    
+    <h3 data-i18n="a_path_t">Parcours scolaire & professionnel</h3>
+    <div class="timeline-container">
+    <!-- Colonne 1 : Parcours Scolaire -->
+    <div class="timeline-column">
+      <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent, #7a5539);">Parcours Scolaire</h4>
+      <ol class="timeline">
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2025-2027</b><span>BREVET DE TECHNICIEN SUPERIEUR (BTS)</span></summary>
+            <p>Lycée Pasteur Mont Roland - Dole (39)</p>
+            <p data-i18n="t1">Option SLAM (Solution logicielles et applications métiers)</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2020-2023</b><span>BACCALAUREAT STI2D</span></summary>
+            <p>Lycée Victor Berard - Morez (39)</p>
+            <p data-i18n="t2">BAC Sciences et Technologies de l'Industrie et du Développement Durable en spécialité SIN (Système informatique et Numérique)</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2017-2020</b><span data-i18n="t3">DIPLOME NATIONAL DU BREVET</span></summary>
+            <p>Collège Pierre Hyacinthe Cazeaux - Morez (39)</p>
+          </details>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Colonne 2 : Parcours Professionnel -->
+    <div class="timeline-column">
+      <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent, #7a5539);">Parcours Professionnel</h4>
+      <ol class="timeline">
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2024</b><span data-i18n="t4">Alternance Développeur - Signaux Girod</span></summary>
+            <p data-i18n="td4">Mise en pratique en entreprise sur des projets réels.</p>
+            <p data-i18n="td41">Apprentissage de nouveaux langages de code.</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2024</b><span data-i18n="t5">Projets & Veille</span></summary>
+            <p data-i18n="td5">Développement de solutions et applications métier.</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2024</b><span data-i18n="t4">Stages & Alternance</span></summary>
+            <p data-i18n="td4">Mise en pratique en entreprise sur des projets réels.</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2024</b><span data-i18n="t4">Stages & Alternance</span></summary>
+            <p data-i18n="td4">Mise en pratique en entreprise sur des projets réels.</p>
+          </details>
+        </li>
+        <li class="reveal">
+          <details>
+            <summary><b class="mono">2024</b><span data-i18n="t4">Stages & Alternance</span></summary>
+            <p data-i18n="td4">Mise en pratique en entreprise sur des projets réels.</p>
+          </details>
+        </li>
+      </ol>
+    </div>
+  </div>
+  </br>
+    <div class="cv reveal">
+      <a class="btn big" id="cv-btn" href="cv-public.html" target="_blank" rel="noopener" aria-describedby="cv-tip">
+        <span data-i18n="cv_btn">Télécharger mon CV</span>
+      </a>
+      <span class="tip" id="cv-tip" role="tooltip" data-i18n="cv_tip">Version publique (données personnelles masquées)</span>
+      <p class="small" data-i18n="cv_note">Version complète disponible sur demande par mail.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 data-i18n="s_title">Compétences</h2>
+    <div class="grid">
+      <article class="card skill reveal">
+        <h3 data-i18n="s1">Front-end</h3>
+        <ul class="chips mono"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Tailwind</li><li>WinUi</li></ul>
+      </article>
+      <article class="card skill reveal">
+        <h3 data-i18n="s2">Back-end</h3>
+        <ul class="chips mono"><li>C# / .NET</li><li>PHP</li><li>SQL</li><li>API REST</li><li>Python</li></ul>
+      </article>
+      <article class="card skill reveal">
+        <h3 data-i18n="s3">Outils & DevOps</h3>
+        <ul class="chips mono"><li>Git</li><li>Linux</li><li>VS Code</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="veille">
+    <h2 data-i18n="v_title">Veille Technologique</h2>
+    <div class="grid">
+      <article class="card reveal">
+        <h3 data-i18n="v2">Green IA</h3>
+        <ul class="chips mono"><li>LLM</li><li>Copilot</li><li>Claude</li></ul>
+      </article>
+    </div>
+    <p class="feeds mono reveal"><span data-i18n="v_feeds">Sources : </span>CERT-FR · Hacker News · MDN Blog · Dev.to</p>
+  </section>
+
+  <section id="ccf">
+    <h2 data-i18n="c_title">CCF & Évaluations</h2>
+    <p class="lead" data-i18n="c_intro">Synthèse de mes épreuves de BTS SIO.</p>
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th data-i18n="th1">Épreuve</th><th data-i18n="th2">Intitulé</th><th data-i18n="th3">Statut</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">E5</td><td data-i18n="r2">Conception et développement d'applications</td><td><span class="badge ok" data-i18n="st1">Validé</span></td></tr>
+          <tr><td class="mono">E6</td><td data-i18n="r3">Cybersécurité / Projet pro</td><td><span class="badge" data-i18n="st2">En cours</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 data-i18n="p_title">Projets Réalisés</h2>
+    <div class="grid">
+      <article class="card project reveal">
+        <div class="thumb" style="--h:28"></div>
+        <h3>Application de rendez-vous</h3>
+        <p data-i18n="p1">Logiciel de gestion de planning sécurisé.</p>
+        <ul class="chips mono"><li>C#</li><li>WinUI 3</li><li>SQL</li></ul>
+        <div class="links"><a href="#" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener" data-i18n="p_demo">Démo</a></div>
+      </article>
+      <article class="card project reveal">
+        <div class="thumb" style="--h:22"></div>
+        <h3>Site vitrine</h3>
+        <p data-i18n="p2">Refonte complète d'un site web professionnel.</p>
+        <ul class="chips mono"><li>HTML</li><li>Tailwind</li><li>JS</li></ul>
+        <div class="links"><a href="#" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener" data-i18n="p_demo">Démo</a></div>
+      </article>
+      <article class="card project reveal">
+        <div class="thumb" style="--h:34"></div>
+        <h3>Infrastructure réseau</h3>
+        <p data-i18n="p3">Mise en place de VLANs et services virtualisés.</p>
+        <ul class="chips mono"><li>Linux</li><li>VLAN</li><li>Docker</li></ul>
+        <div class="links"><a href="#" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener" data-i18n="p_demo">Démo</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="k_title">Contactez-moi</h2>
+    <form id="contact-form" class="form-card reveal" novalidate>
+      <p class="lead" data-i18n="k_intro">Une question ou une opportunité ? Écrivez-moi.</p>
+      <div class="field">
+        <input id="f-name" name="name" placeholder=" " autocomplete="name" required>
+        <label for="f-name" data-i18n="k_name">Nom</label>
+        <small class="err"></small>
+      </div>
+      <div class="field">
+        <input id="f-mail" name="email" type="email" placeholder=" " autocomplete="email" required>
+        <label for="f-mail" data-i18n="k_mail">Email</label>
+        <small class="err"></small>
+      </div>
+      <div class="field">
+        <input id="f-subj" name="subject" placeholder=" " required>
+        <label for="f-subj" data-i18n="k_subj">Objet</label>
+        <small class="err"></small>
+      </div>
+      <div class="field">
+        <textarea id="f-msg" name="message" rows="5" placeholder=" " required></textarea>
+        <label for="f-msg" data-i18n="k_msg">Message</label>
+        <small class="err"></small>
+      </div>
+      <button class="btn big" type="submit" data-i18n="k_send">Envoyer le message</button>
+      <p id="form-status" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer><p class="mono">© <span id="year"></span> Stéphanie Tep</p></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/matrix.js"></script>
+<script src="js/animation-3d.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

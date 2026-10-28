@@ -1,0 +1,32 @@
+/* Warm Code : variables, typographie, hero, transition 3D */
+:root{--bg:#faf6ee;--cream:#f3ebdc;--beige:#e3d5bd;--brown:#4a2f1d;--brown-2:#7a5539;--ok:#5f7a45;--err:#a8432f;--radius:14px;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--brown);font:400 1.05rem/1.7 "Karla",system-ui,sans-serif}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.15}
+a{color:inherit}
+.mono{font-family:var(--mono);font-size:.88em}
+:focus-visible{outline:2px solid var(--brown);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--brown);color:var(--bg);padding:.6rem 1rem;z-index:99}
+.skip:focus{left:0}
+
+.hero{position:relative;height:100vh;min-height:560px;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(circle at 50% 60%,var(--cream),var(--bg) 75%)}
+#matrix{position:absolute;inset:0;width:100%;height:100%}
+.hero-text{position:relative;text-align:center;padding:0 1.5rem}
+.hero-text h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:700;letter-spacing:-.02em}
+.hero-text .role{color:var(--brown-2);font-size:1.2rem;margin:.5rem 0 2rem}
+.snippet{position:absolute;right:5%;bottom:8%;font:.8rem/1.6 var(--mono);color:var(--brown-2);opacity:.55;background:rgba(243,235,220,.6);padding:1rem 1.3rem;border-left:3px solid var(--beige);border-radius:6px}
+@media(max-width:800px){.snippet{display:none}}
+
+/* Section 3D : la hauteur pilote la durée de l'animation */
+.drive{height:320vh;position:relative}
+.drive .sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 65%,var(--cream),var(--bg) 70%)}
+#scene3d{position:absolute;inset:0;width:100%;height:100%}
+.drive-text{position:relative;font-size:1.1rem;color:var(--brown-2);text-align:center;padding:0 1.5rem}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}

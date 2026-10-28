@@ -1,0 +1,155 @@
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(250, 246, 238, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--beige);
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1), padding .3s, border-color .3s;
+}
+
+#navbar.scrolled {
+  padding: .55rem 2rem;
+}
+
+#navbar.hide {
+  transform: translateY(-110%);
+}
+
+.logo {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--brown);
+}
+
+/* Le conteneur des boutons de navigation dans la navbar */
+#menu {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Transformation des liens en de vrais boutons/pilules élégants */
+#menu a {
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--brown);
+  background: var(--cream);
+  border: 1px solid var(--beige);
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  transition: all 0.25s ease;
+}
+
+#menu a:hover {
+  background: var(--brown);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 47, 29, 0.12);
+}
+
+/* Le sélecteur de langue stylisé comme les boutons */
+#lang {
+  background: var(--cream);
+  color: var(--brown);
+  border: 1px solid var(--beige);
+  border-radius: 99px;
+  padding: .4rem 0.8rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 0.4rem;
+}
+
+#lang:hover {
+  background: var(--brown);
+  color: var(--bg);
+}
+
+/* Le bouton burger pour mobile */
+.burger {
+  display: none;
+  background: none;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+}
+
+.burger span {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  height: 2px;
+  background: var(--brown);
+  transition: transform .3s;
+}
+
+.burger span:first-child {
+  top: 11px;
+}
+
+.burger span:last-child {
+  top: 19px;
+}
+
+.burger[aria-expanded=true] span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.burger[aria-expanded=true] span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Version mobile / tablette */
+@media(max-width: 992px) {
+  #navbar {
+    padding: .8rem 1.2rem;
+  }
+  .burger {
+    display: block;
+  }
+  #menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding: 1.2rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--beige);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+    box-shadow: 0 10px 25px rgba(74, 47, 29, 0.1);
+  }
+  #menu.open {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #menu a {
+    text-align: center;
+    padding: 0.6rem;
+  }
+  #lang {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+}
