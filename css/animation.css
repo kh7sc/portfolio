@@ -130,21 +130,31 @@ a
 }
 
 /* Section 3D : la hauteur pilote la durée de l'animation */
-.drive
-{
-  height:320vh;
-  position:relative
+.drive {
+  height: 250vh;
+  position: relative;
 }
 
-.drive .sticky
-{
-  position:sticky;
-  top:0;
-  height:100vh;
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(circle at 50% 65%,var(--cream),var(--bg) 70%)
+@media (max-width: 768px) {
+  .drive {
+    height: 150vh; 
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.drive .sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 65%, var(--cream), var(--bg) 70%);
 }
 
 #scene3d
