@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animation.css">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/sections.css">
 </head>
@@ -31,8 +31,12 @@
   </nav>
 </header>
 
-<div class="language-wrapper-left" style="margin-top: 3rem; text-align: left;">
-  <div class="language-selector">
+<!-- Sections des langues -->
+<div class="lang-wrapper" id="langWrapper">
+  <button class="lang-toggle" aria-expanded="false" aria-label="Choisir la langue">
+    <span class="current-lang-icon">🌐</span>
+  </button>
+  <div class="lang-menu">
     <button class="lang-btn" data-lang="fr">🇫🇷 FR</button>
     <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
     <button class="lang-btn" data-lang="es">🇪🇸 ES</button>

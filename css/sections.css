@@ -73,6 +73,77 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.lang-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.lang-toggle {
+  background: var(--cream);
+  color: var(--brown);
+  border: 1px solid var(--beige);
+  padding: 0.5rem 0.9rem;
+  border-radius: 99px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(74, 47, 29, 0.1);
+  font: 500 0.88rem "Karla", sans-serif;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.lang-toggle:hover {
+  background: var(--brown);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+.lang-menu {
+  position: absolute;
+  bottom: 125%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--cream);
+  border: 1px solid var(--beige);
+  padding: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(74, 47, 29, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.25s cubic-bezier(.2, .8, .2, 1);
+  min-width: 120px;
+}
+
+.lang-wrapper.open .lang-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.lang-menu .lang-btn {
+  background: transparent;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--brown);
+  font: 500 0.85rem "Karla", sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-menu .lang-btn:hover,
+.lang-menu .lang-btn.active {
+  background: var(--brown);
+  color: var(--bg);
+}
+
 .chips {
   list-style: none;
   display: flex;
@@ -127,38 +198,7 @@ h3 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.language-selector {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  gap: 0.5rem;
-  z-index: 1000;
-  background: rgba(255, 251, 247, 0.85);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(139, 107, 74, 0.2);
-  box-shadow: 0 4px 12px rgba(43, 29, 18, 0.08);
-}
 
-.lang-btn {
-  background: transparent;
-  border: 1px solid rgba(139, 107, 74, 0.3);
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.8rem;
-  color: var(--text-color, #2b1d12);
-  transition: all 0.2s ease;
-}
-
-.lang-btn:hover, .lang-btn.active {
-  background-color: var(--accent, #7a5539);
-  color: #fff;
-  border-color: var(--accent, #7a5539);
-}
 
 .chips li {
   background: var(--beige);

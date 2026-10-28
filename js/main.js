@@ -1,13 +1,53 @@
-let lang = "fr";
-const $ = s => document.querySelector(s);
+const langWrapper = document.getElementById('langWrapper');
+const langToggle = langWrapper.querySelector('.lang-toggle');
+const langMenu = langWrapper.querySelector('.lang-menu');
+
+// Ouvrir / fermer le menu au clic sur le bouton principal
+langToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  const isOpen = langWrapper.classList.toggle('open');
+  langToggle.setAttribute('aria-expanded', isOpen);
+});
+
+// Sélectionner une langue et fermer immédiatement le menu
+langMenu.addEventListener('click', (e) => {
+  const btn = e.target.closest('.lang-btn');
+
+  if (!btn) return;
+
+  const selectedLang = btn.dataset.lang;
+
+  setLang(selectedLang);
+
+  // Fermer le menu immédiatement
+  langWrapper.classList.remove('open');
+  langToggle.setAttribute('aria-expanded', 'false');
+});
 
 function setLang(l) {
   lang = T[l] ? l : "fr";
   document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => (el.textContent = T[lang][el.dataset.i18n]));
-  $("#lang").value = lang;
-  document.querySelectorAll(".field").forEach(validate); // réactualise les messages d'erreur
-  try { localStorage.setItem("lang", lang); } catch (e) {}
+
+  // Mettre à jour les textes traduits
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    if (T[lang][el.dataset.i18n] !== undefined) {
+      el.textContent = T[lang][el.dataset.i18n];
+    }
+  });
+
+  // Mettre à jour la langue active
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // Revalider les champs
+  document.querySelectorAll(".field").forEach(validate);
+
+  // Sauvegarder la langue choisie
+  try {
+    localStorage.setItem("lang", lang);
+  } catch (e) {}
 }
 
 // Navbar rétractable

@@ -6,6 +6,7 @@ const T = {
     ccf:"CCF",
     projects:"Projets",
     contact:"Contact",
+    langages : "langages",
     h_role:"Développeur · Étudiant en BTS SIO",
     h_scroll:"Descendre",
     a_title:"À propos", 
@@ -13,10 +14,14 @@ const T = {
     a_intro:"Développeur curieux, je crois à un code propre, utile et bien pensé. \n" + 
     "Ma motivation : transformer un besoin concret en outil fiable, du premier schéma à la mise en ligne.",
     a_bts_t:"Focus BTS SIO", 
-    a_bts:"Le BTS Services informatiques aux organisations se prépare en deux ans. Il forme aux métiers de l'informatique en entreprise, avec stages et situations professionnelles.",
-    a_opts:"SISR : systèmes, réseaux et sécurité. SLAM : conception et développement d'applications. Mon positionnement : développement logiciel, avec de solides bases réseau.",
-    desc_slam:"SLAM : Solutions Logicielles et Applications Métier. Conception, développement, tests et maintenance de logiciels (web, mobile, bureau).",
-    desc_sisr:"SISR : Solutions d'Infrastructure, Systèmes et Réseaux. Installation, administration, sécurisation des équipements et des réseaux informatiques.",
+    a_bts:"Le BTS Services informatiques aux organisations se prépare en deux ans. \n" +
+    "Il forme aux métiers de l'informatique en entreprise, avec stages et situations professionnelles.",
+    a_opts:"SISR : systèmes, réseaux et sécurité. SLAM : conception et développement d'applications. \n" +
+    "Mon positionnement : développement logiciel, avec de solides bases réseau.",
+    desc_slam:"SLAM : Solutions Logicielles et Applications Métier. Conception, développement,\n" +
+    "tests et maintenance de logiciels (web, mobile, bureau).",
+    desc_sisr:"SISR : Solutions d'Infrastructure, Systèmes et Réseaux. \n" + 
+    "Installation, administration, sécurisation des équipements et des réseaux informatiques.",
     a_path_t:"Parcours scolaire et professionnel",
     t1:"Option SLAM (Solution logicielles et applications métiers)",
     t2:"BAC Sciences et Technologies de l'Industrie et du Développement Durable en spécialité SIN (Système informatique et Numérique)",
@@ -74,6 +79,7 @@ const T = {
     ccf:"CCF", 
     projects:"Projects", 
     contact:"Contact",
+    langages : "language",
     h_role:"Developer · BTS SIO student", 
     h_scroll:"Scroll down",
     a_title:"About", 
@@ -139,6 +145,7 @@ const T = {
     ccf:"CCF", 
     projects:"Proyectos", 
     contact:"Contacto",
+    langages : "lenguaje",
     h_role:"Desarrollador · Estudiante de BTS SIO", 
     h_scroll:"Desplázate",
     a_title:"Sobre mí", 
