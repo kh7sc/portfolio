@@ -73,6 +73,7 @@ setLang(saved);
 const nav = $("#navbar"), menu = $("#menu"), burger = $(".burger");
 let lastY = 0;
 
+// Gestion du scroll (masquage/affichage de la navbar)
 addEventListener("scroll", () => {
   const y = scrollY;
   nav.classList.toggle("scrolled", y > 40);
@@ -80,19 +81,22 @@ addEventListener("scroll", () => {
   lastY = y;
 }, { passive: true });
 
+// Ouverture / Fermeture via le bouton Burger
 burger.addEventListener("click", () => {
   const isOpen = menu.classList.toggle("open");
-  burger.classList.toggle("open", isOpen);
+  burger.classList.toggle("open", isOpen); // Optionnel si tu animes ton burger en CSS avec une classe
   burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
 });
 
+// Fermeture automatique au clic sur un lien du menu
 menu.addEventListener("click", e => {
   if (e.target.tagName === "A") {
     menu.classList.remove("open");
-    burger.classList.remove("open");
+    burger.classList.remove("open"); // Remet le burger dans son état initial
     burger.setAttribute("aria-expanded", "false");
   }
 });
+
 
 // Apparition au scroll (sécurisée pour éviter les bugs si l'observer ne déclenche pas tout sur mobile)
 const isMobileDevice = window.innerWidth <= 768;
